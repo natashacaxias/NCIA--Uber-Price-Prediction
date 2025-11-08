@@ -1,4 +1,4 @@
-# 🚗 NCIA – Uber Price Prediction
+#  NCIA – Uber Price Prediction
 
 **Previsão de Preços de Corridas Uber**  
 Aplicação interativa desenvolvida pela **Equipe A (Vespertino)** da **FPF Tech / NCIA**, em parceria com a **Foxconn**, para apresentação na **1ª Amostra Tech AI (2025)**.
@@ -7,7 +7,7 @@ O projeto utiliza **Machine Learning** para prever o preço de corridas Uber a p
 
 ---
 
-## 🎯 Objetivos
+##  Objetivos
 
 - Aplicar **algoritmos de regressão supervisionada** para prever o preço de corridas Uber.  
 - Explorar atributos de **mobilidade urbana** (tempo, clima, distância e demanda).  
@@ -16,7 +16,7 @@ O projeto utiliza **Machine Learning** para prever o preço de corridas Uber a p
 
 ---
 
-## 🧩 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **Python 3.10+**
 - **Streamlit** – Interface interativa
@@ -27,7 +27,7 @@ O projeto utiliza **Machine Learning** para prever o preço de corridas Uber a p
 
 ---
 
-## ⚙️ Como Executar Localmente
+##  Como Executar Localmente
 
 ### Clonar o repositório
 ```
