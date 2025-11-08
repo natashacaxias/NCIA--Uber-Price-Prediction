@@ -3,7 +3,7 @@
 # NCIA / FPF TECH – Equipe A (Vesp.)
 # =======================================================
 
-import streamlit as st      
+import streamlit as st      # 👈 precisa estar aqui no topo
 import pandas as pd
 import numpy as np
 import base64
@@ -60,18 +60,35 @@ st.markdown(
 
 
 # ===========================================
-# CARREGAR DADOS
+# CARREGAR DADOS (upload desaparece após carregar)
 # ===========================================
-@st.cache_data
-def load_data():
-    df = pd.read_csv("data/rideshare_kaggle.csv")
-    df = limparDados(df)
-    df = df[df["cab_type"] == "Uber"]
-    return df
 
-with st.spinner("Carregando dados..."):
-    df = load_data()
-st.success(f"✅ Dataset carregado com {df.shape[0]:,} registros.")
+# Usa session_state pra lembrar se já foi feito o upload
+if "data_uploaded" not in st.session_state:
+    st.session_state.data_uploaded = False
+
+if not st.session_state.data_uploaded:
+    uploaded_file = st.file_uploader(
+        "📂 Envie o dataset `rideshare_uber.csv` para iniciar a análise:",
+        type=["csv"]
+    )
+
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
+        df = limparDados(df)
+        df = df[df["cab_type"].str.lower() == "uber"]
+        st.session_state.df = df  # guarda o dataframe na sessão
+        st.session_state.data_uploaded = True
+        st.success(f"✅ Dataset carregado com {df.shape[0]:,} registros.")
+        st.rerun()  # atualiza a página e oculta o uploader
+    else:
+        st.warning("⚠️ Por favor, envie o arquivo CSV para continuar.")
+        st.stop()
+else:
+    # recupera o dataset da sessão
+    df = st.session_state.df
+    st.success(f"✅ Dataset carregado com {df.shape[0]:,} registros.")
+
 
 # ===========================================
 # ABAS PRINCIPAIS
@@ -268,4 +285,3 @@ try:
     )
 except FileNotFoundError:
     st.warning("⚠️ Imagem de rodapé 'end.png' não encontrada na pasta 'imagens/'.")
-
