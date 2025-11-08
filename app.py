@@ -3,7 +3,7 @@
 # NCIA / FPF TECH – Equipe A (Vesp.)
 # =======================================================
 
-import streamlit as st      # 👈 precisa estar aqui no topo
+import streamlit as st      
 import pandas as pd
 import numpy as np
 import base64
@@ -268,3 +268,4 @@ try:
     )
 except FileNotFoundError:
     st.warning("⚠️ Imagem de rodapé 'end.png' não encontrada na pasta 'imagens/'.")
+
