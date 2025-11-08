@@ -1,0 +1,176 @@
+/* ===========================================
+   Tema Institucional FPF Tech / NCIA (Fundo Azul)
+   =========================================== */
+
+/* Fundo geral e tipografia */
+body {
+    background: linear-gradient(180deg, #003366 0%, #001F3F 100%) !important;
+    font-family: 'Lato', 'Roboto', sans-serif;
+    color: #ffffff !important;
+}
+
+/* Containers principais */
+[data-testid="stAppViewContainer"],
+[data-testid="stSidebar"],
+[data-testid="stHeader"] {
+    background-color: #003366 !important;
+    color: #ffffff !important;
+}
+
+/* Cabeçalhos e títulos */
+h1, h2, h3 {
+    color: #FFD966 !important;  /* Amarelo dourado institucional */
+    font-weight: 700;
+}
+
+/* Subtítulos */
+h4, h5, h6 {
+    color: #FFECB3 !important;  /* Amarelo mais claro */
+    font-weight: 600;
+}
+
+/* Links */
+a, a:visited {
+    color: #FFD966 !important;
+    text-decoration: none;
+}
+a:hover {
+    color: #FFEB99 !important;
+}
+
+/* Abas principais */
+[data-testid="stTabs"] button {
+    background-color: #004080 !important;
+    color: #ffffff !important;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+}
+[data-testid="stTabs"] button[aria-selected="true"] {
+    background-color: #001F3F !important;
+    color: #FFD966 !important;
+    border-bottom: 3px solid #FFD966;
+}
+
+/* Botões e sliders */
+.stButton>button {
+    background-color: #FFD966 !important;
+    color: #003366 !important;
+    border-radius: 8px;
+    font-weight: 700;
+    border: none;
+}
+.stButton>button:hover {
+    background-color: #FFEB99 !important;
+    color: #00264d !important;
+}
+.stSlider>div>div>div>div {
+    background-color: #FFD966 !important;
+}
+
+/* Campos de entrada (corrigido) */
+.stSelectbox div[data-baseweb="select"],
+.stNumberInput input,
+.stTextInput input {
+    background-color: #ffffff !important;   /* fundo branco */
+    color: #003366 !important;              /* texto azul institucional */
+    border-radius: 8px !important;
+    border: 2px solid #FFD966 !important;   /* borda dourada */
+    font-weight: 600 !important;
+}
+
+/* Slider (corrigido) */
+.stSlider > div > div > div > div {
+    background: linear-gradient(90deg, #FFD966, #FFEB99) !important;
+}
+.stSlider label, .stSlider span {
+    color: #FFD966 !important; /* rótulos do slider */
+}
+
+/* Selectbox dropdown (corrigido) */
+.stSelectbox [role="option"] {
+    background-color: #ffffff !important;
+    color: #003366 !important;
+}
+
+
+/* Caixas de destaque */
+.stAlert {
+    border-radius: 10px;
+}
+.stAlert.success {
+    background-color: #FFF8E1 !important;
+    border-left: 6px solid #FFD54F;
+    color: #003366 !important;
+    font-weight: 500;
+}
+.stAlert.info {
+    background-color: #E3F2FD !important;
+    border-left: 6px solid #42A5F5;
+    color: #003366 !important;
+}
+
+/* ===========================================
+   Tabelas institucionais – azul e amarelo
+   =========================================== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Cabeçalho: amarelo institucional */
+thead tr {
+    background-color: #FFD966 !important;  /* Amarelo dourado */
+    color: #003366 !important;             /* Azul escuro */
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Linhas alternadas: tons de azul claro */
+tbody tr:nth-child(odd) {
+    background-color: #E6EEF7 !important;  /* Azul clarinho */
+}
+tbody tr:nth-child(even) {
+    background-color: #D4E4F4 !important;  /* Azul médio suave */
+}
+
+/* Texto das células */
+tbody td {
+    color: #003366 !important;
+    text-align: center;
+    font-weight: 500;
+    padding: 0.6rem;
+}
+
+/* Hover: amarelo suave */
+tbody tr:hover {
+    background-color: #FFF2CC !important;
+}
+
+/* Bordas sutis */
+td, th {
+    border: 1px solid #C5D4E4 !important;
+}
+
+/* Célula do melhor modelo */
+.highlight-best {
+    background-color: #FFF2CC !important;
+    font-weight: 700;
+    border: 2px solid #FFD966 !important;
+}
+
+
+/* Linha divisória */
+hr {
+    border: 1px solid #FFD966 !important;
+}
+
+/* Responsividade do logo */
+@media (max-width: 768px) {
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
