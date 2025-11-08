@@ -66,7 +66,9 @@ st.markdown(
 # Usa session_state pra lembrar se já foi feito o upload
 if "data_uploaded" not in st.session_state:
     st.session_state.data_uploaded = False
+    st.session_state.df = None
 
+# Se ainda não foi feito o upload → mostra o componente
 if not st.session_state.data_uploaded:
     uploaded_file = st.file_uploader(
         "📂 Envie o dataset `rideshare_uber.csv` para iniciar a análise:",
@@ -74,20 +76,23 @@ if not st.session_state.data_uploaded:
     )
 
     if uploaded_file is not None:
+        # Lê e processa o dataset
         df = pd.read_csv(uploaded_file)
         df = limparDados(df)
         df = df[df["cab_type"].str.lower() == "uber"]
-        st.session_state.df = df  # guarda o dataframe na sessão
+
+        # Armazena no session_state
+        st.session_state.df = df
         st.session_state.data_uploaded = True
+
+        # Mensagem de sucesso + força recarregamento
         st.success(f"✅ Dataset carregado com {df.shape[0]:,} registros.")
-        st.rerun()  # atualiza a página e oculta o uploader
-    else:
-        st.warning("⚠️ Por favor, envie o arquivo CSV para continuar.")
-        st.stop()
+        st.experimental_rerun()  # 👈 forçar nova renderização
 else:
-    # recupera o dataset da sessão
+    # Se já foi carregado → recupera o dataframe e pula upload
     df = st.session_state.df
     st.success(f"✅ Dataset carregado com {df.shape[0]:,} registros.")
+
 
 
 # ===========================================
@@ -285,3 +290,4 @@ try:
     )
 except FileNotFoundError:
     st.warning("⚠️ Imagem de rodapé 'end.png' não encontrada na pasta 'imagens/'.")
+
