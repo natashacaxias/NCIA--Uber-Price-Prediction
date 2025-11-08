@@ -87,7 +87,7 @@ if not st.session_state.data_uploaded:
 
         # Mensagem de sucesso + força recarregamento
         st.success(f"✅ Dataset carregado com {df.shape[0]:,} registros.")
-        st.experimental_rerun()  # 👈 forçar nova renderização
+        st.rerun()  # 👈 forçar nova renderização
 else:
     # Se já foi carregado → recupera o dataframe e pula upload
     df = st.session_state.df
@@ -290,4 +290,5 @@ try:
     )
 except FileNotFoundError:
     st.warning("⚠️ Imagem de rodapé 'end.png' não encontrada na pasta 'imagens/'.")
+
 
